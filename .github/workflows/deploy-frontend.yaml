@@ -11,7 +11,7 @@ jobs:
       REACT_APP_API_URL: ${{ secrets.API_URL }}
     defaults:
       run:
-        working-directory: ./social-media-react
+        working-directory: ./social-media-app
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2

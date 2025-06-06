@@ -61,7 +61,13 @@ function CreateComment(props) {
             validated={validated}
             onSubmit={handleSubmit}
             data-testid="create-comment-form">
-            <Image src={user.avatar} roundedCircle width={48} height={48} className="my-2" />
+            <Image
+                src={process.env.NODE_ENV == "test" ? randomAvatar() : user.avatar}
+                roundedCircle
+                width={48}
+                height={48}
+                className="my-2"
+            />
             <Form.Group className="m-3 w-75">
                 <Form.Control
                     className="py-2 rounded-pill border-primary"
