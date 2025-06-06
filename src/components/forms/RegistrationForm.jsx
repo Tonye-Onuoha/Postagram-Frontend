@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { useUserActions } from "../../hooks/user_actions";
 
 function RegistrationForm() {

@@ -1,6 +1,5 @@
 import React from "react";
 import { Navbar, Container, Image, NavDropdown, Nav } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { useUserActions, getUser } from "../hooks/user_actions";
 import { Link } from "react-router-dom";
 // import { randomAvatar } from "../utils";
