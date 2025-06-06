@@ -11,7 +11,7 @@ jobs:
       REACT_APP_API_URL: ${{ secrets.API_URL }}
     defaults:
       run:
-        working-directory: ./Postagram-Frontend
+        working-directory: ./
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
