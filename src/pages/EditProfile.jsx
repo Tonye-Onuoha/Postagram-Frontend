@@ -24,7 +24,7 @@ function EditProfile() {
         }
         fetchUserProfile();
         return () => {
-            let ignore = true;
+            ignore = true;
         };
     }, [profileId]);
 

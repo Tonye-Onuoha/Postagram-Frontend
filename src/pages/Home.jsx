@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { Row, Col, Image } from "react-bootstrap";
-import { randomAvatar } from "../utils";
 import { fetchData } from "../helpers/fetchAPI";
 import { getUser } from "../hooks/user_actions";
 import CreatePost from "../components/posts/CreatePost";
@@ -27,7 +26,6 @@ function Home() {
         }
         const intervalID = setInterval(fetchPosts, 10000);
         return () => {
-            console.log("clearing interval...");
             ignore = true;
             clearInterval(intervalID);
         };
@@ -47,7 +45,7 @@ function Home() {
         }
         fetchUserProfiles();
         return () => {
-            let ignore = true;
+            ignore = true;
         };
     }, []);
 

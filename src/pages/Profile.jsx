@@ -12,7 +12,6 @@ function Profile() {
     const { profileId } = useParams();
 
     useEffect(() => {
-        console.log("fetching profile...");
         let ignore = false;
         async function fetchUserProfile() {
             try {
@@ -26,7 +25,7 @@ function Profile() {
         }
         fetchUserProfile();
         return () => {
-            let ignore = true;
+            ignore = true;
         };
     }, [profileId]);
 
