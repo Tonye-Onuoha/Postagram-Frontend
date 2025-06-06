@@ -24,7 +24,7 @@ function SinglePost() {
             }
         };
         fetchPostData();
-    }, []);
+    }, [postId]);
 
     return (
         <Layout hasNavigationBack>
