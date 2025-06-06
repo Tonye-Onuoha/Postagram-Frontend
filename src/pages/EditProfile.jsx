@@ -26,7 +26,7 @@ function EditProfile() {
         return () => {
             let ignore = true;
         };
-    }, []);
+    }, [profileId]);
 
     return (
         <Layout hasNavigationBack>
