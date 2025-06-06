@@ -28,7 +28,7 @@ function Profile() {
         return () => {
             let ignore = true;
         };
-    }, []);
+    }, [profileId]);
 
     useEffect(() => {
         console.log("fetching profile posts...");
@@ -47,7 +47,7 @@ function Profile() {
         return () => {
             ignore = true;
         };
-    }, []);
+    }, [profileId]);
 
     return (
         <Layout hasNavigationBack>
