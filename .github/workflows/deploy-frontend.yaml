@@ -1,0 +1,31 @@
+name: Build and deploy frontend
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build-test-deploy:
+    name: Tests
+    runs-on: windows-latest
+    env:
+      REACT_APP_API_URL: ${{ secrets.API_URL }}
+    defaults:
+      run:
+        working-directory: ./social-media-react
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+      - name: Installing dependencies
+        run: npm install
+      - name: Running tests
+        run: npm test
+      - name: Building project
+        run: npm run build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-north-1
+      - name: Deploy to S3 bucket
+        run: aws s3 sync ./build/ s3://postagram-694132331740 --delete
