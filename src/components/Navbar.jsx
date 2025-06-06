@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 // import { randomAvatar } from "../utils";
 
 function NavigationBar() {
-    const navigate = useNavigate();
     const userActions = useUserActions();
     const user = getUser();
 

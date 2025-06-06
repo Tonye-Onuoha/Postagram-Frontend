@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { setLocalStorage, postData } from "../../helpers/fetchAPI";
 import { useUserActions } from "../../hooks/user_actions";
 
 function RegistrationForm() {
-    const navigate = useNavigate();
     const [validated, setValidated] = useState(false);
     const [form, setForm] = useState({});
     const [error, setError] = useState(null);

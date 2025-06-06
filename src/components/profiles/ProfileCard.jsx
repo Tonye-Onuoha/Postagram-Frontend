@@ -17,7 +17,7 @@ function ProfileCard(props) {
         <Card className="border-0 p-2">
             <div className="d-flex ">
                 <Image
-                    src={user.username == currentUser.username ? user.avatar : randomAvatar()}
+                    src={user.username === currentUser.username ? user.avatar : randomAvatar()}
                     roundedCircle
                     width={48}
                     height={48}

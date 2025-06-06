@@ -9,7 +9,7 @@ function UpdateComment(props) {
     const [show, setShow] = useState(false);
     const [validated, setValidated] = useState(false);
     const [form, setForm] = useState({ author: comment.author.id, body: comment.body, post: postId });
-    const { toaster, setToaster } = useContext(Context);
+    const { setToaster } = useContext(Context);
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);

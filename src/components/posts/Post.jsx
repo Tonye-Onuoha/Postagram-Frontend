@@ -1,9 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { format } from "timeago.js";
-import { LikeFilled, CommentOutlined, LikeOutlined, MoreOutlined } from "@ant-design/icons";
-import { Button, Modal, Form, Image, Card, Dropdown } from "react-bootstrap";
+import { LikeFilled, CommentOutlined, LikeOutlined } from "@ant-design/icons";
+import { Image, Card, Dropdown } from "react-bootstrap";
 import { fetchData, deleteData } from "../../helpers/fetchAPI";
-import Toaster from "../Toaster";
 import { Link } from "react-router-dom";
 import { getUser, refreshPage } from "../../hooks/user_actions";
 import UpdatePost from "./UpdatePost";

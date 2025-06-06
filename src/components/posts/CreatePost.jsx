@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import Toaster from "../Toaster";
 import { useNavigate } from "react-router-dom";
 import { postData } from "../../helpers/fetchAPI";
 import { getUser } from "../../hooks/user_actions";
@@ -31,7 +30,7 @@ function CreatePost() {
 
         (async () => {
             try {
-                const response_data = await postData("/api/core/posts/", data);
+                await postData("/api/core/posts/", data);
                 handleClose();
                 setForm({});
                 setToaster({ ...toaster, title: "Post", message: "Post created 🚀", type: "success", show: true });

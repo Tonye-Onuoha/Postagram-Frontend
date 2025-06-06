@@ -1,11 +1,9 @@
 import React, { useState, useContext } from "react";
-import { format } from "timeago.js";
-import { Button, Form, Image, Card, Dropdown } from "react-bootstrap";
+import { Button, Form, Image } from "react-bootstrap";
 import { randomAvatar } from "../../utils";
 import { getUser, refreshPage } from "../../hooks/user_actions";
 import { postData } from "../../helpers/fetchAPI";
 import { Context } from "../Layout";
-import MoreToggleIcon from "../posts/Post";
 
 function CreateComment(props) {
     const { postId } = props;
@@ -62,7 +60,7 @@ function CreateComment(props) {
             onSubmit={handleSubmit}
             data-testid="create-comment-form">
             <Image
-                src={process.env.NODE_ENV == "test" ? randomAvatar() : user.avatar}
+                src={process.env.NODE_ENV === "test" ? randomAvatar() : user.avatar}
                 roundedCircle
                 width={48}
                 height={48}

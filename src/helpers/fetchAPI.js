@@ -113,7 +113,7 @@ async function refreshAuth(failedRequestURL, requestMethod = "GET", data = null)
         const response = await fetch(`${baseURL}${failedRequestURL}`, {
             method: requestMethod,
             headers:
-                requestMethod != "PATCH"
+                requestMethod !== "PATCH"
                     ? {
                           Authorization: `Bearer ${access}`,
                           Accept: "application/json",
@@ -129,39 +129,41 @@ async function refreshAuth(failedRequestURL, requestMethod = "GET", data = null)
 
         switch (requestMethod) {
             case "GET":
-                if (response.status == 200) {
+                if (response.status === 200) {
                     return await response.json();
                 } else {
                     failedRequest();
                 }
                 break;
             case "POST":
-                if (response.status == 201) {
+                if (response.status === 201) {
                     return await response.json();
                 } else {
                     failedRequest();
                 }
                 break;
             case "PUT":
-                if (response.status == 200) {
+                if (response.status === 200) {
                     return await response.json();
                 } else {
                     failedRequest();
                 }
                 break;
             case "PATCH":
-                if (response.status == 200) {
+                if (response.status === 200) {
                     return await response.json();
                 } else {
                     failedRequest();
                 }
                 break;
             case "DELETE":
-                if (response.status == 204) {
+                if (response.status === 204) {
                     return;
                 } else {
                     failedRequest();
                 }
+                break;
+            default:
                 break;
         }
     } catch (error) {

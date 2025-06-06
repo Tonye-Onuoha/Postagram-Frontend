@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Button, Modal, Form, Dropdown } from "react-bootstrap";
-import Toaster from "../Toaster";
 import { updateData } from "../../helpers/fetchAPI";
-import { getUser, refreshPage } from "../../hooks/user_actions";
+import { refreshPage } from "../../hooks/user_actions";
 import { Context } from "../Layout";
 
 function UpdatePost(props) {

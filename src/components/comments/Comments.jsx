@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { format } from "timeago.js";
 import { LikeOutlined, LikeFilled } from "@ant-design/icons";
 import { Image, Card, Dropdown } from "react-bootstrap";
-import { randomAvatar } from "../../utils";
 import { fetchData, deleteData } from "../../helpers/fetchAPI";
 import { getUser, refreshPage } from "../../hooks/user_actions";
 import UpdateComment from "./UpdateComment";

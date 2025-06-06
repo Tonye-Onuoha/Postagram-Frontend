@@ -10,7 +10,7 @@ function UpdateProfileForm(props) {
     const [validated, setValidated] = useState(false);
     const [error, setError] = useState(null);
     const [avatar, setAvatar] = useState(null);
-    const { toaster, setToaster } = useContext(Context);
+    const { setToaster } = useContext(Context);
     const navigate = useNavigate();
     const userActions = useUserActions();
 
