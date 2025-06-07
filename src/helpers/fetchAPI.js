@@ -102,7 +102,8 @@ async function refreshAuth(failedRequestURL, requestMethod = "GET", data = null)
     const refresh = getRefreshToken();
     const user = getUser();
     const refreshData = JSON.stringify({ refresh: refresh });
-    const response = await fetch("http://127.0.0.1:8000/api/core/auth/token/refresh/", {
+    const url = "/api/core/auth/token/refresh/";
+    const response = await fetch(`${baseURL}${url}`, {
         method: "POST",
         headers: { Authorization: `Bearer ${refresh}`, Accept: "application/json", "Content-Type": "application/json" },
         body: refreshData
