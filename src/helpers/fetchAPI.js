@@ -1,6 +1,6 @@
 import { getUser, getAccessToken, getRefreshToken } from "../hooks/user_actions";
 
-const baseURL = process.env.REACT_APP_API_URL;
+const baseURL = process.env.NODE_ENV === "development" ? "http://localhost:8000/" : process.env.REACT_APP_API_URL;
 
 function failedRequest() {
     throw new Error("Could not retry request!");
@@ -102,8 +102,9 @@ async function refreshAuth(failedRequestURL, requestMethod = "GET", data = null)
     const refresh = getRefreshToken();
     const user = getUser();
     const refreshData = JSON.stringify({ refresh: refresh });
-    const url = "/api/core/auth/token/refresh/";
-    const response = await fetch(`${baseURL}${url}`, {
+    const tokenURL = `${baseURL}/api/core/auth/token/refresh/`;
+    console.log("The refresh URL is", tokenURL);
+    const response = await fetch(tokenURL, {
         method: "POST",
         headers: { Authorization: `Bearer ${refresh}`, Accept: "application/json", "Content-Type": "application/json" },
         body: refreshData

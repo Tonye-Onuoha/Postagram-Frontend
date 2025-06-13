@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-test-deploy:
-    name: Tests
+    name: Test, Build & Deploy
     runs-on: windows-latest
     env:
       REACT_APP_API_URL: ${{ secrets.API_URL }}
