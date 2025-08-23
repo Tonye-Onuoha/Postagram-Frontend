@@ -9,14 +9,12 @@ function useUserActions() {
     async function register(data) {
         const response = await postData("/api/core/auth/register/", data, true);
         setLocalStorage(response.access, response.refresh, response.user);
-        console.log(response.user);
         navigate("/");
     }
 
     // Login the user
     async function login(data) {
         const response = await postData("/api/core/auth/login/", data, false, true);
-        console.log(response);
         if ("detail" in response) {
             throw new Error(response.detail);
         }
@@ -33,9 +31,15 @@ function useUserActions() {
     }
 
     // Logout the user
-    function logout() {
-        localStorage.removeItem("auth");
-        navigate("/login/");
+    async function logout(data) {
+        const response = await postData("/api/core/auth/logout/", data, false, false, true);
+        if (response.status === 204) {
+            localStorage.removeItem("auth");
+            navigate("/login/");
+        } else if (response.status === 400) {
+            const jsonResponse = await response.json();
+            throw new Error(jsonResponse?.detail); // returns the response detail as the error-message.
+        }
     }
 }
 

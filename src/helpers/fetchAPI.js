@@ -24,7 +24,7 @@ export async function fetchData(url) {
     }
 }
 
-export async function postData(url, body, register = false, login = false) {
+export async function postData(url, body, register = false, login = false, logout = false) {
     const data = JSON.stringify(body);
     if (register || login) {
         const response = await fetch(`${baseURL}${url}`, {
@@ -32,6 +32,7 @@ export async function postData(url, body, register = false, login = false) {
             headers: { Accept: "application/json", "Content-Type": "application/json" },
             body: data
         });
+
         return await response.json();
     } else {
         const access = getAccessToken();
@@ -44,6 +45,7 @@ export async function postData(url, body, register = false, login = false) {
             },
             body: data
         });
+        if (logout) return response; // return immediately if logout request.
         if (response.status === 200) {
             return await response.json();
         } else if (response.status === 401) {
