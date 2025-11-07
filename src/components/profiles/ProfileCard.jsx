@@ -24,7 +24,7 @@ function ProfileCard(props) {
                     className="my-3 border border-primary border-2"
                 />
                 <Card.Body>
-                    <Card.Title className="fs-6">{user.name}</Card.Title>
+                    <Card.Title className="fs-6">{user.name === " " ? "Test User" : user.name}</Card.Title>
                     <Button variant="primary" onClick={handleNavigateToProfile}>
                         See profile
                     </Button>

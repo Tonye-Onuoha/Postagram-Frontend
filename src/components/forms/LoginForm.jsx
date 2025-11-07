@@ -22,6 +22,7 @@ function LoginForm() {
 
         (async () => {
             try {
+                console.log(data);
                 await userActions.login(data);
             } catch (err) {
                 if (err.message) {
